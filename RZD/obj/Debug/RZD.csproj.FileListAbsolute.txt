@@ -1,0 +1,12 @@
+C:\Users\dimka\source\repos\RZD\RZD\bin\Debug\RZD.exe.config
+C:\Users\dimka\source\repos\RZD\RZD\bin\Debug\RZD.exe
+C:\Users\dimka\source\repos\RZD\RZD\bin\Debug\RZD.pdb
+C:\Users\dimka\source\repos\RZD\RZD\obj\Debug\RZD.csprojAssemblyReference.cache
+C:\Users\dimka\source\repos\RZD\RZD\obj\Debug\RZD.MainForm.resources
+C:\Users\dimka\source\repos\RZD\RZD\obj\Debug\RZD.Properties.Resources.resources
+C:\Users\dimka\source\repos\RZD\RZD\obj\Debug\RZD.csproj.GenerateResource.cache
+C:\Users\dimka\source\repos\RZD\RZD\obj\Debug\RZD.csproj.CoreCompileInputs.cache
+C:\Users\dimka\source\repos\RZD\RZD\obj\Debug\RZD.exe
+C:\Users\dimka\source\repos\RZD\RZD\obj\Debug\RZD.pdb
+C:\Users\dimka\source\repos\RZD\RZD\obj\Debug\RZD.UserMainForm.resources
+C:\Users\dimka\source\repos\RZD\RZD\obj\Debug\RZD.UserBuyForm.resources

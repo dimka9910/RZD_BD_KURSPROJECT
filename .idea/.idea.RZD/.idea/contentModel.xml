@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\dimka\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\dimka\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_RZD.-1490694997.00" t="ExcludeRecursive" />
+    <e p="C:\Users\dimka\source\repos\RZD" t="IncludeFlat">
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="RZD" t="IncludeRecursive">
+        <e p="App.config" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="MainForm.cs" t="Include" />
+        <e p="MainForm.Designer.cs" t="Include" />
+        <e p="MainForm.resx" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+          <e p="Resources.Designer.cs" t="Include" />
+          <e p="Resources.resx" t="Include" />
+          <e p="Settings.Designer.cs" t="Include" />
+          <e p="Settings.settings" t="Include" />
+        </e>
+        <e p="RZD.csproj" t="IncludeRecursive" />
+        <e p="UserBuyForm.cs" t="Include" />
+        <e p="UserBuyForm.Designer.cs" t="Include" />
+        <e p="UserBuyForm.resx" t="Include" />
+        <e p="UserMainForm.cs" t="Include" />
+        <e p="UserMainForm.Designer.cs" t="Include" />
+        <e p="UserMainForm.resx" t="Include" />
+      </e>
+      <e p="RZD.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>
