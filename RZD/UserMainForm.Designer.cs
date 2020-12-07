@@ -49,13 +49,27 @@
       this.save = new System.Windows.Forms.Button();
       this.add = new System.Windows.Forms.Button();
       this.tabPage3 = new System.Windows.Forms.TabPage();
+      this.UpdateTickets = new System.Windows.Forms.Button();
+      this.dgv3 = new System.Windows.Forms.DataGridView();
       this.dataSet1 = new System.Data.DataSet();
+      this.dataSet2 = new System.Data.DataSet();
+      this.cancel = new System.Windows.Forms.Button();
+      this.tabPage4 = new System.Windows.Forms.TabPage();
+      this.dataSet3 = new System.Data.DataSet();
+      this.dgv4 = new System.Windows.Forms.DataGridView();
+      this.UpdateLinens = new System.Windows.Forms.Button();
       this.tabControl1.SuspendLayout();
       this.tabPage1.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.dgv1)).BeginInit();
       this.tabPage2.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.dgv22)).BeginInit();
+      this.tabPage3.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.dgv3)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.dataSet2)).BeginInit();
+      this.tabPage4.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.dataSet3)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.dgv4)).BeginInit();
       this.SuspendLayout();
       // 
       // tabControl1
@@ -63,6 +77,7 @@
       this.tabControl1.Controls.Add(this.tabPage1);
       this.tabControl1.Controls.Add(this.tabPage2);
       this.tabControl1.Controls.Add(this.tabPage3);
+      this.tabControl1.Controls.Add(this.tabPage4);
       this.tabControl1.Location = new System.Drawing.Point(1, 0);
       this.tabControl1.Name = "tabControl1";
       this.tabControl1.SelectedIndex = 0;
@@ -256,6 +271,9 @@
       // 
       // tabPage3
       // 
+      this.tabPage3.Controls.Add(this.cancel);
+      this.tabPage3.Controls.Add(this.UpdateTickets);
+      this.tabPage3.Controls.Add(this.dgv3);
       this.tabPage3.Location = new System.Drawing.Point(4, 22);
       this.tabPage3.Name = "tabPage3";
       this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -265,9 +283,75 @@
       this.tabPage3.UseVisualStyleBackColor = true;
       this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
       // 
+      // UpdateTickets
+      // 
+      this.UpdateTickets.Location = new System.Drawing.Point(512, 304);
+      this.UpdateTickets.Name = "UpdateTickets";
+      this.UpdateTickets.Size = new System.Drawing.Size(75, 23);
+      this.UpdateTickets.TabIndex = 1;
+      this.UpdateTickets.Text = "Update";
+      this.UpdateTickets.UseVisualStyleBackColor = true;
+      this.UpdateTickets.Click += new System.EventHandler(this.UpdateTickets_Click);
+      // 
+      // dgv3
+      // 
+      this.dgv3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.dgv3.Location = new System.Drawing.Point(11, 6);
+      this.dgv3.Name = "dgv3";
+      this.dgv3.Size = new System.Drawing.Size(767, 227);
+      this.dgv3.TabIndex = 0;
+      // 
       // dataSet1
       // 
       this.dataSet1.DataSetName = "NewDataSet";
+      // 
+      // dataSet2
+      // 
+      this.dataSet2.DataSetName = "NewDataSet";
+      // 
+      // cancel
+      // 
+      this.cancel.Location = new System.Drawing.Point(74, 303);
+      this.cancel.Name = "cancel";
+      this.cancel.Size = new System.Drawing.Size(75, 23);
+      this.cancel.TabIndex = 2;
+      this.cancel.Text = "Cancel";
+      this.cancel.UseVisualStyleBackColor = true;
+      this.cancel.Click += new System.EventHandler(this.cancel_Click);
+      // 
+      // tabPage4
+      // 
+      this.tabPage4.Controls.Add(this.UpdateLinens);
+      this.tabPage4.Controls.Add(this.dgv4);
+      this.tabPage4.Location = new System.Drawing.Point(4, 22);
+      this.tabPage4.Name = "tabPage4";
+      this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+      this.tabPage4.Size = new System.Drawing.Size(791, 423);
+      this.tabPage4.TabIndex = 3;
+      this.tabPage4.Text = "tabPage4";
+      this.tabPage4.UseVisualStyleBackColor = true;
+      // 
+      // dataSet3
+      // 
+      this.dataSet3.DataSetName = "NewDataSet";
+      // 
+      // dgv4
+      // 
+      this.dgv4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.dgv4.Location = new System.Drawing.Point(44, 30);
+      this.dgv4.Name = "dgv4";
+      this.dgv4.Size = new System.Drawing.Size(499, 259);
+      this.dgv4.TabIndex = 0;
+      // 
+      // UpdateLinens
+      // 
+      this.UpdateLinens.Location = new System.Drawing.Point(575, 320);
+      this.UpdateLinens.Name = "UpdateLinens";
+      this.UpdateLinens.Size = new System.Drawing.Size(75, 23);
+      this.UpdateLinens.TabIndex = 1;
+      this.UpdateLinens.Text = "Update";
+      this.UpdateLinens.UseVisualStyleBackColor = true;
+      this.UpdateLinens.Click += new System.EventHandler(this.UpdateLinens_Click);
       // 
       // UserMainForm
       // 
@@ -285,7 +369,13 @@
       ((System.ComponentModel.ISupportInitialize)(this.dgv1)).EndInit();
       this.tabPage2.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.dgv22)).EndInit();
+      this.tabPage3.ResumeLayout(false);
+      ((System.ComponentModel.ISupportInitialize)(this.dgv3)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.dataSet2)).EndInit();
+      this.tabPage4.ResumeLayout(false);
+      ((System.ComponentModel.ISupportInitialize)(this.dataSet3)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.dgv4)).EndInit();
       this.ResumeLayout(false);
 
     }
@@ -314,5 +404,13 @@
     private System.Windows.Forms.Button add;
     private System.Windows.Forms.DataGridView dgv22;
     private System.Data.DataSet dataSet1;
+    private System.Windows.Forms.Button UpdateTickets;
+    private System.Windows.Forms.DataGridView dgv3;
+    private System.Data.DataSet dataSet2;
+    private System.Windows.Forms.Button cancel;
+    private System.Windows.Forms.TabPage tabPage4;
+    private System.Windows.Forms.Button UpdateLinens;
+    private System.Windows.Forms.DataGridView dgv4;
+    private System.Data.DataSet dataSet3;
   }
 }

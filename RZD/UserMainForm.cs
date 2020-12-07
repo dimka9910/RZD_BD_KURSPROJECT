@@ -24,21 +24,8 @@ namespace RZD
       this.id = id;
       this.cn = cn;
       UpdateTablePassDate();
-      //OleDbCommand cmd1 = new OleDbCommand("GetPssData", cn);
-      //cmd1.CommandType = CommandType.StoredProcedure;
-      //Console.WriteLine(this.id);
-      //cmd1.Parameters.AddWithValue("@Account_Id", this.id);
-      //OleDbDataReader dr1 = cmd1.ExecuteReader();
-      //int columnCount1 = dr1.FieldCount;
-      //dgv2.Rows.Clear();
-      //string[] rowData1 = new string[columnCount1];
-      //while (dr1.Read())
-      //{
-      //  rowData1[0] = dr1.GetString(0);
-      //  rowData1[1] = dr1.GetString(1);
-      //  rowData1[2] = dr1.GetString(2);
-      //  dgv2.Rows.Add(rowData1);
-      //}
+      UpdateTableTickets();
+      UpdateTableLinens();
 
     }
 
@@ -87,6 +74,34 @@ namespace RZD
       dgv22.Columns["Id"].ReadOnly = true;
       dgv22.Columns["Id"].Width = 1;
     }
+    
+    private void UpdateTableTickets()
+    {
+      DateTime localDate = Time.GetTime();
+      dataSet2.Clear();
+      dgv3.AllowUserToAddRows = false;
+      dgv3.AllowUserToResizeColumns = false;
+      dAdapter = new OleDbDataAdapter();
+      dAdapter.SelectCommand = new OleDbCommand("SelectAllTickets", cn);
+      dAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+      dAdapter.SelectCommand.Parameters.AddWithValue("@Date", localDate.ToString());
+      dAdapter.SelectCommand.Parameters.AddWithValue("@Account_Id", this.id);
+      dAdapter.Fill(dataSet2);
+
+      dgv3.DataSource = dataSet2.Tables[0];
+      for (int c_ = 0; c_ < dgv3.Columns.Count; c_++)
+      {
+        dgv3.Columns[c_].ReadOnly = true;
+      }
+      dgv3.Columns["Id"].Width = 35;
+      dgv3.Columns["Route Name"].Width = 150;
+      dgv3.Columns["Checked"].Width = 55;
+      dgv3.Columns["Name"].Width = 60;
+      dgv3.Columns["Surname"].Width = 70;
+      dgv3.Columns["Fname"].Width = 70;
+      dgv3.Columns["To"].Width = 80;
+    }
+    
 
 
     private void dgv1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -101,8 +116,8 @@ namespace RZD
         string to = row.Cells[3].Value.ToString();
         string deptime = row.Cells[4].Value.ToString();
         int price = Int32.Parse(row.Cells[7].Value.ToString());
-        UserBuyForm u1 = new UserBuyForm(id, cn, id_tt, name, from, to, deptime, price);
-        u1.Show();
+        UserBuyForm ubf = new UserBuyForm(id, cn, id_tt, name, from, to, deptime, price);
+        ubf.Show();
       }
     }
 
@@ -209,6 +224,69 @@ namespace RZD
     private void UserMainForm_FormClosing(object sender, FormClosingEventArgs e)
     {
       Application.Exit();
+    }
+
+    private void UpdateTickets_Click(object sender, EventArgs e)
+    {
+      UpdateTableTickets();
+    }
+
+    private void cancel_Click(object sender, EventArgs e)
+    {
+      int count_t = dgv3.SelectedRows.Count;
+      if (count_t > 0)
+      {
+        var confirmResult = MessageBox.Show("Подтверждаете отмену " + count_t + " билетов" , "Подтвердите",
+          MessageBoxButtons.YesNo);
+        if (confirmResult == DialogResult.Yes)
+        {
+          foreach (DataGridViewRow row in dgv3.SelectedRows)
+          {
+            try
+            {
+              OleDbCommand cmd = new OleDbCommand("CancelTicket", cn);
+              cmd.CommandType = CommandType.StoredProcedure;
+              cmd.Parameters.AddWithValue("@Id", Int32.Parse(row.Cells["Id"].Value.ToString()));
+              OleDbDataReader dr = cmd.ExecuteReader();
+              while (dr.Read())
+              {
+                if (dr.GetInt32(0) == 1)
+                {
+                  MessageBox.Show(row.Cells["Name"].Value.ToString() + " " +
+                                  row.Cells["Surname"].Value.ToString() + ", должен бельё", "Ошибка",
+                    MessageBoxButtons.OK);
+                }
+              }
+            }
+            catch (Exception e2)
+            {
+            }
+          }
+        }
+        UpdateTableTickets();
+      }
+    }
+
+
+    private void UpdateTableLinens()
+    {
+      dataSet3.Clear();
+      dgv4.AllowUserToAddRows = false;
+      dgv4.AllowUserToResizeColumns = false;
+      dAdapter = new OleDbDataAdapter();
+      dAdapter.SelectCommand = new OleDbCommand("SelectMyLinens", cn);
+      dAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+      dAdapter.SelectCommand.Parameters.AddWithValue("@Id", this.id);
+      dAdapter.Fill(dataSet3);
+      dgv4.DataSource = dataSet3.Tables[0];
+      for (int c_ = 0; c_ < dgv4.Columns.Count; c_++)
+      {
+        dgv3.Columns[c_].ReadOnly = true;
+      }
+    }
+    private void UpdateLinens_Click(object sender, EventArgs e)
+    {
+      UpdateTableLinens();
     }
   }
 }

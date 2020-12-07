@@ -10,3 +10,4 @@ C:\Users\dimka\source\repos\RZD\RZD\obj\Debug\RZD.exe
 C:\Users\dimka\source\repos\RZD\RZD\obj\Debug\RZD.pdb
 C:\Users\dimka\source\repos\RZD\RZD\obj\Debug\RZD.UserMainForm.resources
 C:\Users\dimka\source\repos\RZD\RZD\obj\Debug\RZD.UserBuyForm.resources
+C:\Users\dimka\source\repos\RZD\RZD\obj\Debug\RZD.StewardMainForm.resources

@@ -21,6 +21,10 @@
           <e p="Settings.settings" t="Include" />
         </e>
         <e p="RZD.csproj" t="IncludeRecursive" />
+        <e p="StewardMainForm.cs" t="Include" />
+        <e p="StewardMainForm.Designer.cs" t="Include" />
+        <e p="StewardMainForm.resx" t="Include" />
+        <e p="Time.cs" t="Include" />
         <e p="UserBuyForm.cs" t="Include" />
         <e p="UserBuyForm.Designer.cs" t="Include" />
         <e p="UserBuyForm.resx" t="Include" />
