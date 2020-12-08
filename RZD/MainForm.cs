@@ -37,7 +37,8 @@ namespace RZD
       OleDbDataReader reader = cmd.ExecuteReader();
       ////
       this.Hide();
-      UserMainForm u1 = new UserMainForm(1, cn);
+      //UserMainForm u1 = new UserMainForm(1, cn);
+      StewardMainForm u1 = new StewardMainForm(1, cn);
       u1.Show();
       ////
       
