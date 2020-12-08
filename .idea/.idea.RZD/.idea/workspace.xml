@@ -22,18 +22,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8ea3c30-2fa4-4968-8d81-660e1470cbac" name="Default Changelist" comment="Контролёр Сделан">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.RZD/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RZD/.idea/contentModel.xml" afterDir="false" />
+    <list default="true" id="e8ea3c30-2fa4-4968-8d81-660e1470cbac" name="Default Changelist" comment="Маршруты админа созданы">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RZD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RZD/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vs/RZD/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/RZD/v16/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RZD.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/RZD.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RZD/MainForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RZD/MainForm.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RZD/RZD.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/RZD/RZD.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RZD/StewardMainForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RZD/StewardMainForm.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RZD/AdminMainForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RZD/AdminMainForm.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RZD/bin/Debug/RZD.exe" beforeDir="false" afterPath="$PROJECT_DIR$/RZD/bin/Debug/RZD.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RZD/bin/Debug/RZD.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/RZD/bin/Debug/RZD.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RZD/obj/Debug/RZD.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/RZD/obj/Debug/RZD.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RZD/obj/Debug/RZD.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/RZD/obj/Debug/RZD.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RZD/obj/Debug/RZD.csproj.GenerateResource.cache" beforeDir="false" afterPath="$PROJECT_DIR$/RZD/obj/Debug/RZD.csproj.GenerateResource.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RZD/obj/Debug/RZD.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/RZD/obj/Debug/RZD.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RZD/obj/Debug/RZD.exe" beforeDir="false" afterPath="$PROJECT_DIR$/RZD/obj/Debug/RZD.exe" afterDir="false" />
@@ -102,7 +96,7 @@
       <updated>1607189815750</updated>
       <workItem from="1607189823872" duration="22995000" />
       <workItem from="1607336656074" duration="5860000" />
-      <workItem from="1607358047602" duration="24558000" />
+      <workItem from="1607358047602" duration="28728000" />
     </task>
     <task id="LOCAL-00001" summary="07.12.2020 18.22">
       <created>1607358164928</created>
@@ -125,7 +119,21 @@
       <option name="project" value="LOCAL" />
       <updated>1607436284537</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Маршруты админа созданы">
+      <created>1607449296512</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1607449296512</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Маршруты админа созданы">
+      <created>1607449312116</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1607449312116</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,7 +158,8 @@
     <MESSAGE value="07.12.2020 18.22" />
     <MESSAGE value="07.12.2020 18.22 2" />
     <MESSAGE value="Контролёр Сделан" />
-    <option name="LAST_COMMIT_MESSAGE" value="Контролёр Сделан" />
+    <MESSAGE value="Маршруты админа созданы" />
+    <option name="LAST_COMMIT_MESSAGE" value="Маршруты админа созданы" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2392" y="153" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607370870290">
@@ -185,10 +194,10 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2012" y="92" width="1736" height="856" key="VCS.FileHistoryDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607359988758" />
-    <state x="2472" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607436289550">
+    <state x="2472" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607449315983">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607436289550" />
+    <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607449315983" />
     <state x="2536" y="240" key="run.anything.popup" timestamp="1607444176362">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>

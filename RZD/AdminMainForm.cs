@@ -15,10 +15,12 @@ namespace RZD
     public partial class AdminMainForm : Form
     {
         private int id;
+        private int day_of_week = 1;
         private OleDbConnection cn;
 
         public AdminMainForm(int id, OleDbConnection cn)
         {
+            day_of_week = 1;
             InitializeComponent();
             this.id = id;
             this.cn = cn;
@@ -27,9 +29,12 @@ namespace RZD
             dgv12Clear();
             trainsCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             routeNameCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            NameTTBaseCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             StationsCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             StationFirstCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             StationsCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            setBtnColor();
+            FillRoutesCb();
         }
 
         private void AdminMainForm_Load(object sender, EventArgs e)
@@ -39,37 +44,6 @@ namespace RZD
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
         }
-
-        /////////////// КНОПКИ ДНЕЙ НЕДЕЛИ \\\\\\\\\\\\\\\\\\\\
-        private void monBtn_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void tueBtn_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void wedBtn_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void thuBtn_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void friBtn_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void satBtn_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void sunBtn_Click(object sender, EventArgs e)
-        {
-        }
-
-        // ------------------------------------------------\\
 
         // 1 я страница//
 
@@ -183,6 +157,7 @@ namespace RZD
             CreateNewRoute();
             dgv12Clear();
             UpdateAllRoutes();
+            FillRoutesCb();
         }
 
         private void AdminMainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -194,14 +169,219 @@ namespace RZD
         {
             if (CreateNewStationTB.Text.Length > 0 && CreateNewStationTB.Text != " ")
             {
-                OleDbCommand cmd = new OleDbCommand("INSERT INTO Stations(Name) VALUES (?)", cn);
-                cmd.Parameters.Add("@Name", OleDbType.VarChar);
-                cmd.Parameters[0].Value = CreateNewStationTB.Text;
-                cmd.ExecuteNonQuery();
-                FillStationsCb();
-                MessageBox.Show("Станция " + CreateNewStationTB.Text + " добавлена", "Success", MessageBoxButtons.OK);
-                CreateNewStationTB.Text = "";
+                try
+                {
+                    OleDbCommand cmd = new OleDbCommand("INSERT INTO Stations(Name) VALUES (?)", cn);
+                    cmd.Parameters.Add("@Name", OleDbType.VarChar);
+                    cmd.Parameters[0].Value = CreateNewStationTB.Text;
+                    cmd.ExecuteNonQuery();
+                    FillStationsCb();
+                    MessageBox.Show("Станция " + CreateNewStationTB.Text + " добавлена", "Success",
+                        MessageBoxButtons.OK);
+                    CreateNewStationTB.Text = "";
+                }
+                catch (Exception e1)
+                {
+                }
             }
         }
+        
+        /////////////////////////////////////////////////
+        // ------------------------------------------------\\
+        // 2 я страница//
+
+        private void CreatNewInTTBase()
+        {
+            try
+            {
+                OleDbCommand cmd = new OleDbCommand("CreatNewInTTBase", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@DayOfWeek", day_of_week);
+                cmd.Parameters.AddWithValue("@Name", NameTTBaseCB.Text.ToString());
+                cmd.Parameters.AddWithValue("@Time", timeTTBaseTB.Text.ToString());
+                OleDbDataReader dr = cmd.ExecuteReader();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Заполните все поля правильно! \n И не создавайте одинаковых маршрутов", "ERROR",
+                MessageBoxButtons.OK);
+                
+            }
+        }
+
+        private void DeleteInTTBase()
+        {
+            int count_t = dgv2.SelectedRows.Count;
+            if (count_t > 0)
+            {
+                var confirmResult = MessageBox.Show("Подтверждаете удаление " + count_t + " рейсов", "Подтвердите",
+                    MessageBoxButtons.YesNo);
+                if (confirmResult == DialogResult.Yes)
+                {
+                    foreach (DataGridViewRow row in dgv2.SelectedRows)
+                    {
+                        try
+                        {
+                            OleDbCommand cmd = new OleDbCommand("DELETE FROM TimeTable_Base WHERE Id = ?", cn);
+                            cmd.Parameters.Add("@Id", OleDbType.Integer);
+                            cmd.Parameters[0].Value = Int32.Parse(row.Cells["Id"].Value.ToString());
+                            cmd.ExecuteNonQuery();
+                        }
+                        catch (Exception e2)
+                        {
+                        }
+                    }
+                }
+            }
+        }
+
+        private void FillRoutesCb()
+        {
+            StationsCB.Items.Clear();
+            StationFirstCB.Items.Clear();
+            OleDbCommand IDS = new OleDbCommand("SELECT Name FROM Routes", cn);
+            OleDbDataReader rdr = IDS.ExecuteReader();
+            while (rdr.Read())
+            {
+                NameTTBaseCB.Items.Add(rdr["Name"]);
+            }
+        }
+        
+        private void setBtnColor()
+        {
+            monBtn.BackColor = Color.Transparent;
+            tueBtn.BackColor = Color.Transparent;
+            wedBtn.BackColor = Color.Transparent;
+            thuBtn.BackColor = Color.Transparent;
+            friBtn.BackColor = Color.Transparent;
+            satBtn.BackColor = Color.Transparent;
+            sunBtn.BackColor = Color.Transparent;
+            switch (day_of_week)
+            {
+                case 1:
+                    monBtn.BackColor = Color.White;
+                    break;
+                case 2:
+                    tueBtn.BackColor = Color.White;
+                    break;
+                case 3:
+                    wedBtn.BackColor = Color.White;
+                    break;
+                case 4:
+                    thuBtn.BackColor = Color.White;
+                    break;
+                case 5:
+                    friBtn.BackColor = Color.White;
+                    break;
+                case 6:
+                    satBtn.BackColor = Color.White;
+                    break;
+                case 7:
+                    sunBtn.BackColor = Color.White;
+                    break;
+            }
+        }
+
+
+        private void dgv2Fill()
+        {
+            dataSet2.Clear();
+            dgv2.AllowUserToAddRows = false;
+            dgv2.AllowUserToResizeColumns = false;
+            OleDbDataAdapter dAdapter = new OleDbDataAdapter();
+            dAdapter.SelectCommand = new OleDbCommand(
+                "SELECT TimeTable_Base.Id, DayOfWeek, Name, Stops, Time FROM TimeTable_Base " + 
+                "INNER JOIN Routes on Route_Id = Routes.Id WHERE DayOfWeek = ? ORDER BY Time", cn);
+            dAdapter.SelectCommand.Parameters.Add("@DayOfWeek", OleDbType.Integer);
+            dAdapter.SelectCommand.Parameters[0].Value = day_of_week;
+            dAdapter.Fill(dataSet2);
+            dgv2.DataSource = dataSet2.Tables[0];
+            for (int c_ = 0; c_ < dgv2.Columns.Count; c_++)
+                dgv2.Columns[c_].ReadOnly = true;
+            dgv2.Columns["Stops"].Width = 270;
+            dgv2.Columns["Name"].Width = 160;
+        } 
+        /////////////// КНОПКИ ДНЕЙ НЕДЕЛИ \\\\\\\\\\\\\\\\\\\\
+        private void monBtn_Click(object sender, EventArgs e)
+        {
+            day_of_week = 1;
+            dgv2Fill();
+            setBtnColor();
+        }
+
+        private void tueBtn_Click(object sender, EventArgs e)
+        {
+            day_of_week = 2;
+            dgv2Fill();
+            setBtnColor();
+        }
+
+        private void wedBtn_Click(object sender, EventArgs e)
+        {
+            day_of_week = 3;
+            dgv2Fill();
+            setBtnColor();
+        }
+
+        private void thuBtn_Click(object sender, EventArgs e)
+        {
+            day_of_week = 4;
+            dgv2Fill();
+            setBtnColor();
+        }
+
+        private void friBtn_Click(object sender, EventArgs e)
+        {
+            day_of_week = 5;
+            dgv2Fill();
+            setBtnColor();
+        }
+
+        private void satBtn_Click(object sender, EventArgs e)
+        {
+            day_of_week = 6;
+            dgv2Fill();
+            setBtnColor();
+        }
+
+        private void sunBtn_Click(object sender, EventArgs e)
+        {
+            day_of_week = 7;
+            dgv2Fill();
+            setBtnColor();
+        }
+
+    private void addTTBaseBtn_Click(object sender, EventArgs e)
+    {
+        CreatNewInTTBase();
+        dgv2Fill();
+    }
+
+    private void deleteTTBaseBtn_Click(object sender, EventArgs e)
+    {
+        DeleteInTTBase();
+        dgv2Fill();
+    }
+
+    // ------------------------------------------------\\
+
+    /////////////////////////////////////////////////
+    // ------------------------------------------------\\
+    // 3 я страница//
+
+    private void fillTTbtn_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void addTTbtn_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void applyTrainsBtn_Click(object sender, EventArgs e)
+    {
+
+    }
   }
 }
