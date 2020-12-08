@@ -32,6 +32,7 @@ namespace RZD
       ComboBoxFill();
       dgv4.AllowUserToAddRows = false;
       totalPriceLbl.Text = "0";
+      comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
     }
     
     private void UpdateTableTimeTable()

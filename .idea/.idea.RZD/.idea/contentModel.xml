@@ -6,6 +6,9 @@
     <e p="C:\Users\dimka\source\repos\RZD" t="IncludeFlat">
       <e p="packages" t="ExcludeRecursive" />
       <e p="RZD" t="IncludeRecursive">
+        <e p="AdminMainForm.cs" t="Include" />
+        <e p="AdminMainForm.Designer.cs" t="Include" />
+        <e p="AdminMainForm.resx" t="Include" />
         <e p="App.config" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="MainForm.cs" t="Include" />

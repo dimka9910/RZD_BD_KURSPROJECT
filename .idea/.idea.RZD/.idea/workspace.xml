@@ -22,14 +22,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8ea3c30-2fa4-4968-8d81-660e1470cbac" name="Default Changelist" comment="07.12.2020 18.22 2">
+    <list default="true" id="e8ea3c30-2fa4-4968-8d81-660e1470cbac" name="Default Changelist" comment="Контролёр Сделан">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RZD/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RZD/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RZD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RZD/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vs/RZD/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/RZD/v16/.suo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RZD.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/RZD.sln.DotSettings.user" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RZD/MainForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RZD/MainForm.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RZD/RZD.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/RZD/RZD.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RZD/StewardMainForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RZD/StewardMainForm.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RZD/bin/Debug/RZD.exe" beforeDir="false" afterPath="$PROJECT_DIR$/RZD/bin/Debug/RZD.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RZD/bin/Debug/RZD.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/RZD/bin/Debug/RZD.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RZD/obj/Debug/RZD.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/RZD/obj/Debug/RZD.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RZD/obj/Debug/RZD.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/RZD/obj/Debug/RZD.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RZD/obj/Debug/RZD.csproj.GenerateResource.cache" beforeDir="false" afterPath="$PROJECT_DIR$/RZD/obj/Debug/RZD.csproj.GenerateResource.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RZD/obj/Debug/RZD.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/RZD/obj/Debug/RZD.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RZD/obj/Debug/RZD.exe" beforeDir="false" afterPath="$PROJECT_DIR$/RZD/obj/Debug/RZD.exe" afterDir="false" />
@@ -51,7 +55,9 @@
         <option value="$PROJECT_DIR$/RZD/Time.cs" />
         <option value="$PROJECT_DIR$/RZD/UserMainForm.cs" />
         <option value="$PROJECT_DIR$/RZD/MainForm.cs" />
+        <option value="$PROJECT_DIR$/RZD/AdminMainForm.Designer.cs" />
         <option value="$PROJECT_DIR$/RZD/StewardMainForm.cs" />
+        <option value="$PROJECT_DIR$/RZD/AdminMainForm.cs" />
       </list>
     </option>
   </component>
@@ -96,7 +102,7 @@
       <updated>1607189815750</updated>
       <workItem from="1607189823872" duration="22995000" />
       <workItem from="1607336656074" duration="5860000" />
-      <workItem from="1607358047602" duration="17947000" />
+      <workItem from="1607358047602" duration="24558000" />
     </task>
     <task id="LOCAL-00001" summary="07.12.2020 18.22">
       <created>1607358164928</created>
@@ -112,7 +118,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607358195283</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Контролёр Сделан">
+      <created>1607436284537</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1607436284537</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,33 +149,34 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="07.12.2020 18.22" />
     <MESSAGE value="07.12.2020 18.22 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="07.12.2020 18.22 2" />
+    <MESSAGE value="Контролёр Сделан" />
+    <option name="LAST_COMMIT_MESSAGE" value="Контролёр Сделан" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2392" y="153" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607370870290">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2392" y="153" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607370870290" />
-    <state width="1877" height="194" key="GridCell.Tab.0.bottom" timestamp="1607433125527">
+    <state width="1877" height="194" key="GridCell.Tab.0.bottom" timestamp="1607444673196">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="194" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607195476154" />
-    <state width="1877" height="194" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607433125527" />
-    <state width="1877" height="194" key="GridCell.Tab.0.center" timestamp="1607433125527">
+    <state width="1877" height="194" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607444673196" />
+    <state width="1877" height="194" key="GridCell.Tab.0.center" timestamp="1607444673196">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="194" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607195476154" />
-    <state width="1877" height="194" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607433125527" />
-    <state width="1877" height="194" key="GridCell.Tab.0.left" timestamp="1607433125527">
+    <state width="1877" height="194" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607444673196" />
+    <state width="1877" height="194" key="GridCell.Tab.0.left" timestamp="1607444673196">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="194" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607195476153" />
-    <state width="1877" height="194" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607433125527" />
-    <state width="1877" height="194" key="GridCell.Tab.0.right" timestamp="1607433125527">
+    <state width="1877" height="194" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607444673196" />
+    <state width="1877" height="194" key="GridCell.Tab.0.right" timestamp="1607444673196">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="194" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607195476154" />
-    <state width="1877" height="194" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607433125527" />
+    <state width="1877" height="194" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607444673196" />
     <state width="196" height="455" key="HiddenNamespacesPopup" timestamp="1607370772799">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -171,13 +185,13 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2012" y="92" width="1736" height="856" key="VCS.FileHistoryDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607359988758" />
-    <state x="2472" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607358200367">
+    <state x="2472" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607436289550">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607358200367" />
-    <state x="2536" y="240" key="run.anything.popup" timestamp="1607268904868">
+    <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607436289550" />
+    <state x="2536" y="240" key="run.anything.popup" timestamp="1607444176362">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2536" y="240" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607268904868" />
+    <state x="2536" y="240" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607444176362" />
   </component>
 </project>

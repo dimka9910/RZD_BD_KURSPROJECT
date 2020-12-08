@@ -38,7 +38,8 @@ namespace RZD
       ////
       this.Hide();
       //UserMainForm u1 = new UserMainForm(1, cn);
-      StewardMainForm u1 = new StewardMainForm(1, cn);
+      //StewardMainForm u1 = new StewardMainForm(1, cn);
+      AdminMainForm u1 = new AdminMainForm(1, cn);
       u1.Show();
       ////
       
