@@ -257,7 +257,9 @@ namespace RZD
 
     private void StewardMainForm_FormClosing(object sender, FormClosingEventArgs e)
     {
-      Application.Exit();
+      this.Hide();
+      MainForm u = new MainForm();
+      u.Show();
     }
 
     private void ApplyBtn_Click(object sender, EventArgs e)

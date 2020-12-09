@@ -20,8 +20,9 @@ namespace RZD
 
         public AdminMainForm(int id, OleDbConnection cn)
         {
-            day_of_week = 1;
             InitializeComponent();
+            numLbl.Text = "";
+            day_of_week = 1;
             this.id = id;
             this.cn = cn;
             UpdateAllRoutes();
@@ -35,6 +36,9 @@ namespace RZD
             StationsCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             setBtnColor();
             FillRoutesCb();
+            FillDgv3();
+            FillStationsCb();
+            fillTrainsCB();
         }
 
         private void AdminMainForm_Load(object sender, EventArgs e)
@@ -162,7 +166,9 @@ namespace RZD
 
         private void AdminMainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            this.Hide();
+            MainForm u = new MainForm();
+            u.Show();
         }
 
         private void CreateNewStationBtn_Click(object sender, EventArgs e)
@@ -237,13 +243,14 @@ namespace RZD
 
         private void FillRoutesCb()
         {
-            StationsCB.Items.Clear();
-            StationFirstCB.Items.Clear();
+            NameTTBaseCB.Items.Clear();
+            routeNameCB.Items.Clear();
             OleDbCommand IDS = new OleDbCommand("SELECT Name FROM Routes", cn);
             OleDbDataReader rdr = IDS.ExecuteReader();
             while (rdr.Read())
             {
                 NameTTBaseCB.Items.Add(rdr["Name"]);
+                routeNameCB.Items.Add(rdr["Name"]);
             }
         }
         
@@ -369,17 +376,180 @@ namespace RZD
     // ------------------------------------------------\\
     // 3 я страница//
 
+    private void FillDgv3()
+    {
+        DateTime localDate = RZD.Time.GetTime();
+        dataSet3.Clear();
+        dgv3.AllowUserToAddRows = false;
+        dgv3.AllowUserToResizeColumns = false;
+        OleDbDataAdapter dAdapter = new OleDbDataAdapter();
+        dAdapter.SelectCommand = new OleDbCommand("SELECT CONVERT(DATE, DepartureTime) as Date,COUNT(Id) as Amount" + 
+                                                  " FROM TimeTable GROUP BY CONVERT(DATE, DepartureTime) "+
+                                                  "HAVING CONVERT(DATE, DepartureTime) > '" + localDate.ToShortDateString() +"'", cn);
+        //dAdapter.SelectCommand.Parameters.Add("@DayOfWeek", OleDbType.Integer);
+        //dAdapter.SelectCommand.Parameters[0].Value = day_of_week;
+        dAdapter.Fill(dataSet3);
+        dgv3.DataSource = dataSet3.Tables[0];
+        for (int c_ = 0; c_ < dgv3.Columns.Count; c_++)
+            dgv3.Columns[c_].ReadOnly = true;
+    }
+    
     private void fillTTbtn_Click(object sender, EventArgs e)
     {
+        DateTime from;
+        DateTime to;
 
+        if (DateTime.TryParse(fromTimeTTCB.Text.ToString(), out from) &&
+            DateTime.TryParse(toTimeTTCB.Text.ToString(), out to))
+        {
+            for (DateTime ii11=from;  ii11<=to; ii11=ii11.AddDays(1)  )
+            {
+                try
+                {
+                    OleDbCommand cmd = new OleDbCommand("TimeTableFilling", cn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("Date", ii11);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception e2)
+                {
+                }
+            }
+        }
+        else
+        {
+            MessageBox.Show("Заполните дату корректно", "ERROR", MessageBoxButtons.OK);
+        }
+
+        FillDgv3();
+    }
+
+    private void FillDgv32()
+    {
+        string date = monthCalendar1.SelectionRange.Start.ToShortDateString();
+        dataSet32.Clear();
+        dgv32.AllowUserToAddRows = false;
+        dgv32.AllowUserToResizeColumns = false;
+        OleDbDataAdapter dAdapter = new OleDbDataAdapter();
+        dAdapter.SelectCommand = new OleDbCommand("SearchTimeTableAdmin", cn);
+        dAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+        dAdapter.SelectCommand.Parameters.AddWithValue("@Date", date);
+        dAdapter.Fill(dataSet32);
+        dgv32.DataSource = dataSet32.Tables[0];
+        for (int c_ = 0; c_ < dgv32.Columns.Count; c_++)
+            dgv32.Columns[c_].ReadOnly = true;
+        dgv32.Columns["Id"].Width = 40;
+        dgv32.Columns["Name"].Width = 160;
+        dgv32.Columns["Train_Id"].Width = 50;
+        dgv32.Columns["Train Name"].Width = 70;
+        
+    }
+
+    private void AddDirectlyInTTFun()
+    {
+        try
+        {
+            string date = monthCalendar1.SelectionRange.Start.ToShortDateString();
+            OleDbCommand cmd = new OleDbCommand("AddDirectlyInTTFun", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@DayOfWeek", date);
+            cmd.Parameters.AddWithValue("@Name", routeNameCB.Text.ToString());
+            cmd.Parameters.AddWithValue("@Time", timeTTtb.Text.ToString());
+            OleDbDataReader dr = cmd.ExecuteReader();
+        }
+        catch (Exception e)
+        {
+            MessageBox.Show("Заполните все поля правильно!", "ERROR",
+                MessageBoxButtons.OK);
+
+        }
+    }
+
+    private void fillTrainsCB()
+    {
+        trainsCB.Items.Clear();
+        OleDbCommand IDS = new OleDbCommand("SELECT Name FROM Trains", cn);
+        OleDbDataReader rdr = IDS.ExecuteReader();
+        while (rdr.Read())
+        {
+            trainsCB.Items.Add(rdr["Name"]);
+        }
     }
 
     private void addTTbtn_Click(object sender, EventArgs e)
     {
-
+        AddDirectlyInTTFun();
+        FillDgv32();
     }
 
     private void applyTrainsBtn_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            OleDbCommand IDS =
+                new OleDbCommand("UPDATE TimeTable Set Train_Id = (SELECT Id FROM Trains WHERE Name = ?) WHERE Id = ?",
+                    cn);
+            IDS.Parameters.Add("@P1", OleDbType.VarChar);
+            IDS.Parameters.Add("@P2", OleDbType.Integer);
+            IDS.Parameters[0].Value = trainsCB.Text.ToString();
+            IDS.Parameters[1].Value = Int32.Parse(numLbl.Text);
+            IDS.ExecuteNonQuery();
+            FillDgv32();
+        }
+        catch (Exception e2)
+        {
+            MessageBox.Show("Выберите рейс и поезд", "ERROR",
+                MessageBoxButtons.OK);
+        }
+    }
+
+    private void SearchBtn_Click(object sender, EventArgs e)
+    {
+        numLbl.Text = "";
+        FillDgv32();
+    }
+
+    private void dgv32_CellClick(object sender, DataGridViewCellEventArgs e)
+    {
+        if (e.RowIndex >= 0)
+        {
+            DataGridViewRow row = dgv32.Rows[e.RowIndex];
+            Console.WriteLine(Int32.Parse(row.Cells[0].Value.ToString()));
+            numLbl.Text = row.Cells[0].Value.ToString();
+        }
+    }
+
+    private void tabPage1_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void label7_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void label2_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void label3_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void label4_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void label6_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void label5_Click(object sender, EventArgs e)
     {
 
     }

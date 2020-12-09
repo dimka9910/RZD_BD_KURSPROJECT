@@ -28,6 +28,7 @@
     /// </summary>
     private void InitializeComponent()
     {
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserMainForm));
       this.tabControl1 = new System.Windows.Forms.TabControl();
       this.tabPage1 = new System.Windows.Forms.TabPage();
       this.dgv1 = new System.Windows.Forms.DataGridView();
@@ -49,15 +50,23 @@
       this.save = new System.Windows.Forms.Button();
       this.add = new System.Windows.Forms.Button();
       this.tabPage3 = new System.Windows.Forms.TabPage();
+      this.cancel = new System.Windows.Forms.Button();
       this.UpdateTickets = new System.Windows.Forms.Button();
       this.dgv3 = new System.Windows.Forms.DataGridView();
+      this.tabPage4 = new System.Windows.Forms.TabPage();
+      this.UpdateLinens = new System.Windows.Forms.Button();
+      this.dgv4 = new System.Windows.Forms.DataGridView();
       this.dataSet1 = new System.Data.DataSet();
       this.dataSet2 = new System.Data.DataSet();
-      this.cancel = new System.Windows.Forms.Button();
-      this.tabPage4 = new System.Windows.Forms.TabPage();
       this.dataSet3 = new System.Data.DataSet();
-      this.dgv4 = new System.Windows.Forms.DataGridView();
-      this.UpdateLinens = new System.Windows.Forms.Button();
+      this.pictureBox1 = new System.Windows.Forms.PictureBox();
+      this.pictureBox2 = new System.Windows.Forms.PictureBox();
+      this.pictureBox3 = new System.Windows.Forms.PictureBox();
+      this.pictureBox4 = new System.Windows.Forms.PictureBox();
+      this.label1 = new System.Windows.Forms.Label();
+      this.label2 = new System.Windows.Forms.Label();
+      this.label3 = new System.Windows.Forms.Label();
+      this.label4 = new System.Windows.Forms.Label();
       this.tabControl1.SuspendLayout();
       this.tabPage1.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.dgv1)).BeginInit();
@@ -65,11 +74,15 @@
       ((System.ComponentModel.ISupportInitialize)(this.dgv22)).BeginInit();
       this.tabPage3.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.dgv3)).BeginInit();
+      this.tabPage4.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.dgv4)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.dataSet2)).BeginInit();
-      this.tabPage4.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.dataSet3)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.dgv4)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
       this.SuspendLayout();
       // 
       // tabControl1
@@ -88,17 +101,20 @@
       // 
       // tabPage1
       // 
+      this.tabPage1.Controls.Add(this.TextBoxTo);
+      this.tabPage1.Controls.Add(this.TextBoxFrom);
+      this.tabPage1.Controls.Add(this.label2);
+      this.tabPage1.Controls.Add(this.label1);
       this.tabPage1.Controls.Add(this.dgv1);
       this.tabPage1.Controls.Add(this.Search);
       this.tabPage1.Controls.Add(this.monthCalendar1);
-      this.tabPage1.Controls.Add(this.TextBoxTo);
-      this.tabPage1.Controls.Add(this.TextBoxFrom);
+      this.tabPage1.Controls.Add(this.pictureBox1);
       this.tabPage1.Location = new System.Drawing.Point(4, 22);
       this.tabPage1.Name = "tabPage1";
       this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
       this.tabPage1.Size = new System.Drawing.Size(791, 423);
       this.tabPage1.TabIndex = 0;
-      this.tabPage1.Text = "tabPage1";
+      this.tabPage1.Text = "Купить Билет";
       this.tabPage1.UseVisualStyleBackColor = true;
       this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
       // 
@@ -118,6 +134,7 @@
       this.dgv1.Name = "dgv1";
       this.dgv1.Size = new System.Drawing.Size(572, 347);
       this.dgv1.TabIndex = 5;
+      this.dgv1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv1_CellClick);
       this.dgv1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv1_CellContentClick);
       // 
       // id_
@@ -185,9 +202,10 @@
       // 
       // Search
       // 
-      this.Search.Location = new System.Drawing.Point(573, 14);
+      this.Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.Search.Location = new System.Drawing.Point(607, 14);
       this.Search.Name = "Search";
-      this.Search.Size = new System.Drawing.Size(154, 23);
+      this.Search.Size = new System.Drawing.Size(154, 33);
       this.Search.TabIndex = 3;
       this.Search.Text = "Search";
       this.Search.UseVisualStyleBackColor = true;
@@ -202,32 +220,38 @@
       // 
       // TextBoxTo
       // 
-      this.TextBoxTo.Location = new System.Drawing.Point(384, 16);
+      this.TextBoxTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.TextBoxTo.Location = new System.Drawing.Point(424, 16);
       this.TextBoxTo.Name = "TextBoxTo";
-      this.TextBoxTo.Size = new System.Drawing.Size(177, 20);
+      this.TextBoxTo.Size = new System.Drawing.Size(177, 31);
       this.TextBoxTo.TabIndex = 1;
       this.TextBoxTo.TextChanged += new System.EventHandler(this.TextBoxTo_TextChanged);
       // 
       // TextBoxFrom
       // 
-      this.TextBoxFrom.Location = new System.Drawing.Point(205, 16);
+      this.TextBoxFrom.AccessibleDescription = "Пртае";
+      this.TextBoxFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.TextBoxFrom.Location = new System.Drawing.Point(231, 16);
       this.TextBoxFrom.Name = "TextBoxFrom";
-      this.TextBoxFrom.Size = new System.Drawing.Size(155, 20);
+      this.TextBoxFrom.Size = new System.Drawing.Size(155, 31);
       this.TextBoxFrom.TabIndex = 0;
+      this.TextBoxFrom.Tag = "";
       this.TextBoxFrom.TextChanged += new System.EventHandler(this.TextBoxFrom_TextChanged);
       // 
       // tabPage2
       // 
+      this.tabPage2.Controls.Add(this.label3);
       this.tabPage2.Controls.Add(this.dgv22);
       this.tabPage2.Controls.Add(this.delete);
       this.tabPage2.Controls.Add(this.save);
       this.tabPage2.Controls.Add(this.add);
+      this.tabPage2.Controls.Add(this.pictureBox2);
       this.tabPage2.Location = new System.Drawing.Point(4, 22);
       this.tabPage2.Name = "tabPage2";
       this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
       this.tabPage2.Size = new System.Drawing.Size(791, 423);
       this.tabPage2.TabIndex = 1;
-      this.tabPage2.Text = "tabPage2";
+      this.tabPage2.Text = "Мои Пассажиры";
       this.tabPage2.UseVisualStyleBackColor = true;
       this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
       // 
@@ -241,31 +265,34 @@
       // 
       // delete
       // 
-      this.delete.Location = new System.Drawing.Point(115, 259);
+      this.delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.delete.Location = new System.Drawing.Point(170, 294);
       this.delete.Name = "delete";
-      this.delete.Size = new System.Drawing.Size(75, 23);
+      this.delete.Size = new System.Drawing.Size(142, 55);
       this.delete.TabIndex = 3;
-      this.delete.Text = "delete";
+      this.delete.Text = "Удалить";
       this.delete.UseVisualStyleBackColor = true;
       this.delete.Click += new System.EventHandler(this.delete_Click);
       // 
       // save
       // 
-      this.save.Location = new System.Drawing.Point(115, 218);
+      this.save.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.save.Location = new System.Drawing.Point(170, 194);
       this.save.Name = "save";
-      this.save.Size = new System.Drawing.Size(75, 23);
+      this.save.Size = new System.Drawing.Size(142, 83);
       this.save.TabIndex = 2;
-      this.save.Text = "save";
+      this.save.Text = "Сохранить изменения";
       this.save.UseVisualStyleBackColor = true;
       this.save.Click += new System.EventHandler(this.save_Click);
       // 
       // add
       // 
-      this.add.Location = new System.Drawing.Point(115, 175);
+      this.add.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.add.Location = new System.Drawing.Point(170, 121);
       this.add.Name = "add";
-      this.add.Size = new System.Drawing.Size(75, 23);
+      this.add.Size = new System.Drawing.Size(142, 55);
       this.add.TabIndex = 1;
-      this.add.Text = "add";
+      this.add.Text = "Добавить";
       this.add.UseVisualStyleBackColor = true;
       this.add.Click += new System.EventHandler(this.add_Click);
       // 
@@ -274,22 +301,35 @@
       this.tabPage3.Controls.Add(this.cancel);
       this.tabPage3.Controls.Add(this.UpdateTickets);
       this.tabPage3.Controls.Add(this.dgv3);
+      this.tabPage3.Controls.Add(this.pictureBox3);
       this.tabPage3.Location = new System.Drawing.Point(4, 22);
       this.tabPage3.Name = "tabPage3";
       this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
       this.tabPage3.Size = new System.Drawing.Size(791, 423);
       this.tabPage3.TabIndex = 2;
-      this.tabPage3.Text = "tabPage3";
+      this.tabPage3.Text = "Мои Билеты";
       this.tabPage3.UseVisualStyleBackColor = true;
       this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
       // 
+      // cancel
+      // 
+      this.cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.cancel.Location = new System.Drawing.Point(11, 321);
+      this.cancel.Name = "cancel";
+      this.cancel.Size = new System.Drawing.Size(156, 59);
+      this.cancel.TabIndex = 2;
+      this.cancel.Text = "Оменить Билет";
+      this.cancel.UseVisualStyleBackColor = true;
+      this.cancel.Click += new System.EventHandler(this.cancel_Click);
+      // 
       // UpdateTickets
       // 
-      this.UpdateTickets.Location = new System.Drawing.Point(512, 304);
+      this.UpdateTickets.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.UpdateTickets.Location = new System.Drawing.Point(622, 321);
       this.UpdateTickets.Name = "UpdateTickets";
-      this.UpdateTickets.Size = new System.Drawing.Size(75, 23);
+      this.UpdateTickets.Size = new System.Drawing.Size(156, 59);
       this.UpdateTickets.TabIndex = 1;
-      this.UpdateTickets.Text = "Update";
+      this.UpdateTickets.Text = "Обновить";
       this.UpdateTickets.UseVisualStyleBackColor = true;
       this.UpdateTickets.Click += new System.EventHandler(this.UpdateTickets_Click);
       // 
@@ -298,8 +338,41 @@
       this.dgv3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
       this.dgv3.Location = new System.Drawing.Point(11, 6);
       this.dgv3.Name = "dgv3";
-      this.dgv3.Size = new System.Drawing.Size(767, 227);
+      this.dgv3.Size = new System.Drawing.Size(767, 291);
       this.dgv3.TabIndex = 0;
+      // 
+      // tabPage4
+      // 
+      this.tabPage4.Controls.Add(this.label4);
+      this.tabPage4.Controls.Add(this.UpdateLinens);
+      this.tabPage4.Controls.Add(this.dgv4);
+      this.tabPage4.Controls.Add(this.pictureBox4);
+      this.tabPage4.Location = new System.Drawing.Point(4, 22);
+      this.tabPage4.Name = "tabPage4";
+      this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+      this.tabPage4.Size = new System.Drawing.Size(791, 423);
+      this.tabPage4.TabIndex = 3;
+      this.tabPage4.Text = "Бельё";
+      this.tabPage4.UseVisualStyleBackColor = true;
+      // 
+      // UpdateLinens
+      // 
+      this.UpdateLinens.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.UpdateLinens.Location = new System.Drawing.Point(636, 376);
+      this.UpdateLinens.Name = "UpdateLinens";
+      this.UpdateLinens.Size = new System.Drawing.Size(149, 40);
+      this.UpdateLinens.TabIndex = 1;
+      this.UpdateLinens.Text = "Update";
+      this.UpdateLinens.UseVisualStyleBackColor = true;
+      this.UpdateLinens.Click += new System.EventHandler(this.UpdateLinens_Click);
+      // 
+      // dgv4
+      // 
+      this.dgv4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.dgv4.Location = new System.Drawing.Point(7, 54);
+      this.dgv4.Name = "dgv4";
+      this.dgv4.Size = new System.Drawing.Size(499, 362);
+      this.dgv4.TabIndex = 0;
       // 
       // dataSet1
       // 
@@ -309,49 +382,89 @@
       // 
       this.dataSet2.DataSetName = "NewDataSet";
       // 
-      // cancel
-      // 
-      this.cancel.Location = new System.Drawing.Point(74, 303);
-      this.cancel.Name = "cancel";
-      this.cancel.Size = new System.Drawing.Size(75, 23);
-      this.cancel.TabIndex = 2;
-      this.cancel.Text = "Cancel";
-      this.cancel.UseVisualStyleBackColor = true;
-      this.cancel.Click += new System.EventHandler(this.cancel_Click);
-      // 
-      // tabPage4
-      // 
-      this.tabPage4.Controls.Add(this.UpdateLinens);
-      this.tabPage4.Controls.Add(this.dgv4);
-      this.tabPage4.Location = new System.Drawing.Point(4, 22);
-      this.tabPage4.Name = "tabPage4";
-      this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-      this.tabPage4.Size = new System.Drawing.Size(791, 423);
-      this.tabPage4.TabIndex = 3;
-      this.tabPage4.Text = "tabPage4";
-      this.tabPage4.UseVisualStyleBackColor = true;
-      // 
       // dataSet3
       // 
       this.dataSet3.DataSetName = "NewDataSet";
       // 
-      // dgv4
+      // pictureBox1
       // 
-      this.dgv4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-      this.dgv4.Location = new System.Drawing.Point(44, 30);
-      this.dgv4.Name = "dgv4";
-      this.dgv4.Size = new System.Drawing.Size(499, 259);
-      this.dgv4.TabIndex = 0;
+      this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+      this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+      this.pictureBox1.Name = "pictureBox1";
+      this.pictureBox1.Size = new System.Drawing.Size(795, 626);
+      this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.pictureBox1.TabIndex = 6;
+      this.pictureBox1.TabStop = false;
       // 
-      // UpdateLinens
+      // pictureBox2
       // 
-      this.UpdateLinens.Location = new System.Drawing.Point(575, 320);
-      this.UpdateLinens.Name = "UpdateLinens";
-      this.UpdateLinens.Size = new System.Drawing.Size(75, 23);
-      this.UpdateLinens.TabIndex = 1;
-      this.UpdateLinens.Text = "Update";
-      this.UpdateLinens.UseVisualStyleBackColor = true;
-      this.UpdateLinens.Click += new System.EventHandler(this.UpdateLinens_Click);
+      this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+      this.pictureBox2.Location = new System.Drawing.Point(-2, -102);
+      this.pictureBox2.Name = "pictureBox2";
+      this.pictureBox2.Size = new System.Drawing.Size(795, 626);
+      this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.pictureBox2.TabIndex = 7;
+      this.pictureBox2.TabStop = false;
+      // 
+      // pictureBox3
+      // 
+      this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+      this.pictureBox3.Location = new System.Drawing.Point(-2, -102);
+      this.pictureBox3.Name = "pictureBox3";
+      this.pictureBox3.Size = new System.Drawing.Size(795, 626);
+      this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.pictureBox3.TabIndex = 7;
+      this.pictureBox3.TabStop = false;
+      // 
+      // pictureBox4
+      // 
+      this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+      this.pictureBox4.Location = new System.Drawing.Point(-2, -102);
+      this.pictureBox4.Name = "pictureBox4";
+      this.pictureBox4.Size = new System.Drawing.Size(795, 626);
+      this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.pictureBox4.TabIndex = 7;
+      this.pictureBox4.TabStop = false;
+      // 
+      // label1
+      // 
+      this.label1.AutoSize = true;
+      this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.label1.Location = new System.Drawing.Point(193, 19);
+      this.label1.Name = "label1";
+      this.label1.Size = new System.Drawing.Size(38, 25);
+      this.label1.TabIndex = 7;
+      this.label1.Text = "Из";
+      // 
+      // label2
+      // 
+      this.label2.AutoSize = true;
+      this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.label2.Location = new System.Drawing.Point(386, 20);
+      this.label2.Name = "label2";
+      this.label2.Size = new System.Drawing.Size(40, 25);
+      this.label2.TabIndex = 8;
+      this.label2.Text = "До";
+      // 
+      // label3
+      // 
+      this.label3.AutoSize = true;
+      this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.label3.Location = new System.Drawing.Point(215, 20);
+      this.label3.Name = "label3";
+      this.label3.Size = new System.Drawing.Size(460, 73);
+      this.label3.TabIndex = 8;
+      this.label3.Text = "ПАССАЖИРЫ";
+      // 
+      // label4
+      // 
+      this.label4.AutoSize = true;
+      this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.label4.Location = new System.Drawing.Point(7, 12);
+      this.label4.Name = "label4";
+      this.label4.Size = new System.Drawing.Size(509, 39);
+      this.label4.TabIndex = 9;
+      this.label4.Text = "Пассажиры не сдавшие бельё";
       // 
       // UserMainForm
       // 
@@ -360,6 +473,7 @@
       this.ClientSize = new System.Drawing.Size(800, 450);
       this.Controls.Add(this.tabControl1);
       this.Name = "UserMainForm";
+      this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
       this.Text = "UserMainForm";
       this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UserMainForm_FormClosing);
       this.Load += new System.EventHandler(this.UserMainForm_Load);
@@ -368,14 +482,20 @@
       this.tabPage1.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.dgv1)).EndInit();
       this.tabPage2.ResumeLayout(false);
+      this.tabPage2.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.dgv22)).EndInit();
       this.tabPage3.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.dgv3)).EndInit();
+      this.tabPage4.ResumeLayout(false);
+      this.tabPage4.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.dgv4)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.dataSet2)).EndInit();
-      this.tabPage4.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.dataSet3)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.dgv4)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
       this.ResumeLayout(false);
 
     }
@@ -412,5 +532,13 @@
     private System.Windows.Forms.Button UpdateLinens;
     private System.Windows.Forms.DataGridView dgv4;
     private System.Data.DataSet dataSet3;
+    private System.Windows.Forms.Label label2;
+    private System.Windows.Forms.Label label1;
+    private System.Windows.Forms.PictureBox pictureBox1;
+    private System.Windows.Forms.Label label3;
+    private System.Windows.Forms.PictureBox pictureBox2;
+    private System.Windows.Forms.PictureBox pictureBox3;
+    private System.Windows.Forms.Label label4;
+    private System.Windows.Forms.PictureBox pictureBox4;
   }
 }

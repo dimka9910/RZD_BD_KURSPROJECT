@@ -84,6 +84,7 @@ namespace RZD
                 MessageBox.Show("Билеты куплены. Теперь они у вас на вкладке билетов", "Success", MessageBoxButtons.OK);
             }
         }
+      this.Hide();
     }
   }
 }

@@ -12,3 +12,4 @@ C:\Users\dimka\source\repos\RZD\RZD\obj\Debug\RZD.UserMainForm.resources
 C:\Users\dimka\source\repos\RZD\RZD\obj\Debug\RZD.UserBuyForm.resources
 C:\Users\dimka\source\repos\RZD\RZD\obj\Debug\RZD.StewardMainForm.resources
 C:\Users\dimka\source\repos\RZD\RZD\obj\Debug\RZD.AdminMainForm.resources
+C:\Users\dimka\source\repos\RZD\RZD\obj\Debug\RZD.Registration.resources

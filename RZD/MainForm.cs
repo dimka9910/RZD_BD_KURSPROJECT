@@ -35,30 +35,32 @@ namespace RZD
       cmd.Parameters.AddWithValue("@Login", LoginTextBox.Text);
       cmd.Parameters.AddWithValue("@Password", PasswordTextBox.Text);
       OleDbDataReader reader = cmd.ExecuteReader();
-      ////
-      this.Hide();
-      //UserMainForm u1 = new UserMainForm(1, cn);
-      //StewardMainForm u1 = new StewardMainForm(1, cn);
-      AdminMainForm u1 = new AdminMainForm(1, cn);
-      u1.Show();
-      ////
-      
+
       if (reader.Read())
       {
         string role = reader[2].ToString();
         int id = int.Parse(reader[0].ToString());
-        if (role == "user" || role == "stewards" || role == "admin")
+        if (role == "user") 
         {
           this.Hide();
           UserMainForm u = new UserMainForm(id, cn);
           u.Show();
-          
-
-          //MessageBox.Show(role, "ERROR", MessageBoxButtons.OK);
+        }
+        else if (role == "stewards")
+        {
+          this.Hide();
+          StewardMainForm u1 = new StewardMainForm(1, cn);
+          u1.Show();
+        }
+        else if (role == "admin")
+        {
+          this.Hide();
+          AdminMainForm u1 = new AdminMainForm(1, cn);
+          u1.Show();
         }
         else
         {
-          //MessageBox.Show(role, "ERROR", MessageBoxButtons.OK);
+          MessageBox.Show(role, "ERROR", MessageBoxButtons.OK);
         }
       }
     }
@@ -66,6 +68,23 @@ namespace RZD
     private void MainForm_Activated(object sender, EventArgs e)
     {
 
+    }
+
+    private void Registration_Click(object sender, EventArgs e)
+    {
+      this.Hide();
+      Registration u = new Registration(cn);
+      u.Show();
+    }
+
+    private void LoginTextBox_TextChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+    {
+      Application.Exit();
     }
   }
 }

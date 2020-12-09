@@ -106,19 +106,6 @@ namespace RZD
 
     private void dgv1_CellContentClick(object sender, DataGridViewCellEventArgs e)
     {
-      if (e.RowIndex >= 0)
-      {
-        DataGridViewRow row = dgv1.Rows[e.RowIndex];
-        Console.WriteLine(Int32.Parse(row.Cells[0].Value.ToString()));
-        int id_tt = Int32.Parse(row.Cells[0].Value.ToString());
-        string name = row.Cells[1].Value.ToString();
-        string from = row.Cells[2].Value.ToString();
-        string to = row.Cells[3].Value.ToString();
-        string deptime = row.Cells[4].Value.ToString();
-        int price = Int32.Parse(row.Cells[7].Value.ToString());
-        UserBuyForm ubf = new UserBuyForm(id, cn, id_tt, name, from, to, deptime, price);
-        ubf.Show();
-      }
     }
 
     private void tabPage1_Click(object sender, EventArgs e)
@@ -223,7 +210,9 @@ namespace RZD
 
     private void UserMainForm_FormClosing(object sender, FormClosingEventArgs e)
     {
-      Application.Exit();
+      this.Hide();
+      MainForm u = new MainForm();
+      u.Show();
     }
 
     private void UpdateTickets_Click(object sender, EventArgs e)
@@ -287,6 +276,23 @@ namespace RZD
     private void UpdateLinens_Click(object sender, EventArgs e)
     {
       UpdateTableLinens();
+    }
+
+    private void dgv1_CellClick(object sender, DataGridViewCellEventArgs e)
+    {
+      if (e.RowIndex >= 0)
+      {
+        DataGridViewRow row = dgv1.Rows[e.RowIndex];
+        Console.WriteLine(Int32.Parse(row.Cells[0].Value.ToString()));
+        int id_tt = Int32.Parse(row.Cells[0].Value.ToString());
+        string name = row.Cells[1].Value.ToString();
+        string from = row.Cells[2].Value.ToString();
+        string to = row.Cells[3].Value.ToString();
+        string deptime = row.Cells[4].Value.ToString();
+        int price = Int32.Parse(row.Cells[7].Value.ToString());
+        UserBuyForm ubf = new UserBuyForm(id, cn, id_tt, name, from, to, deptime, price);
+        ubf.Show();
+      }
     }
   }
 }

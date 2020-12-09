@@ -77,6 +77,7 @@
       this.Controls.Add(this.label1);
       this.Controls.Add(this.dgv22);
       this.Name = "UserBuyForm";
+      this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
       this.Text = "UserBuyForm";
       ((System.ComponentModel.ISupportInitialize)(this.dgv22)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
